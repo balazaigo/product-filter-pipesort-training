@@ -32,16 +32,20 @@ function App() {
   useEffect(() => {
     if(fil.category.length > 0 || fil.brand.length > 0){
       if(fil.category.length > 0 && fil.brand.length > 0){
-        setProds([...products.filter(prod => fil.category.includes(prod.category) && fil.brand.includes(prod.brand))])
+        setProds(products.filter(prod => fil.category.includes(prod.category) && fil.brand.includes(prod.brand)))
       }
       if(fil.category.length > 0 && fil.brand.length === 0){
-        setProds([...products.filter(prod => fil.category.includes(prod.category))])
+        setProds(products.filter(prod => fil.category.includes(prod.category)))
       }
       if(fil.brand.length > 0 && fil.category.length === 0){
-        setProds([...products.filter(prod => fil.brand.includes(prod.brand))])
+        setProds(products.filter(prod => fil.brand.includes(prod.brand)))
       }
+    }else{
+      setProds(products);
     }
   },[fil]);
+
+  console.log('app render');
 
   return (
     <>

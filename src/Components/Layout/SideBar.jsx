@@ -14,10 +14,12 @@ export default function SideBar({ setFilter }) {
     if (!checked) {
       setFilter((prev) => ({
         ...prev,
-        [name]: [...prev[name].filter((arr) => arr !== value)],
+        [name]: prev[name].filter((arr) => arr !== value),
       }));
     }
   };
+
+  console.log("side bar renders");
 
   return (
     <div className="sidenav">
